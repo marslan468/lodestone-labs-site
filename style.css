@@ -94,12 +94,15 @@ a { color: inherit; }
 }
 
 .logo {
-  font-family: var(--display);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: var(--limestone);
+}
+
+.logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
 .nav {
@@ -445,7 +448,7 @@ a { color: inherit; }
   .nav-toggle { display: flex; }
 
   .core-entry { grid-template-columns: 1fr; gap: 8px; }
-  .logo { font-size: 0.85rem; letter-spacing: 0.04em; }
+  .logo-img { height: 28px; }
 }
 
 @media (max-width: 480px) {
