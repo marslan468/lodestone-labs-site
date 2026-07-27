@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lodestone Labs | Probabilistic mineral resource intelligence</title>
+<meta name="description" content="Lodestone Labs applies probabilistic machine learning to geoscientific data, turning resource uncertainty into investable confidence for critical mineral exploration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">LODESTONE LABS</a>
+    <nav class="nav" id="mainNav">
+      <a href="#approach">How it works</a>
+      <a href="#why">Why it matters</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Probabilistic resource intelligence</p>
+        <h1>Confidence,<br>by the layer.</h1>
+        <p class="hero-sub">
+          Lodestone Labs trains machine learning models on geoscientific data to turn opaque, static
+          resource and reserve estimates into calibrated, probabilistic ones. Lithological settings
+          get rated for prospectivity, and for the uncertainty behind that rating.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Request a pilot</a>
+          <a href="#approach" class="btn btn-ghost">See the approach</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 640" class="strata-svg">
+          <defs>
+            <linearGradient id="bandFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C9A227" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#C9A227" stop-opacity="0.12"/>
+            </linearGradient>
+          </defs>
+          <!-- strata layers -->
+          <rect x="0" y="0"   width="520" height="90"  fill="#232B31"/>
+          <rect x="0" y="90"  width="520" height="60"  fill="#2F5D62"/>
+          <rect x="0" y="150" width="520" height="110" fill="#3A3230"/>
+          <rect x="0" y="260" width="520" height="70"  fill="#A85C32"/>
+          <rect x="0" y="330" width="520" height="130" fill="#232B31"/>
+          <rect x="0" y="460" width="520" height="80"  fill="#4A5560"/>
+          <rect x="0" y="540" width="520" height="100" fill="#2F5D62"/>
+
+          <!-- borehole trace -->
+          <path d="M120,0 C130,120 90,240 140,360 C170,440 110,540 130,640"
+                stroke="#E8E2D4" stroke-width="2" fill="none" stroke-opacity="0.35"/>
+
+          <!-- uncertainty band (confidence envelope) -->
+          <path d="M260,20
+                   C300,140 220,220 300,320
+                   C350,390 260,470 320,560
+                   C340,600 300,620 300,640
+                   L440,640
+                   C400,600 460,560 400,470
+                   C360,400 430,330 400,300
+                   C360,220 420,120 380,20 Z"
+                fill="url(#bandFade)" stroke="#C9A227" stroke-width="1.5" stroke-opacity="0.8"/>
+
+          <!-- central probability line -->
+          <path d="M330,20 C345,140 310,220 350,320 C375,390 335,470 360,560 C368,600 350,620 350,640"
+                stroke="#E8E2D4" stroke-width="2" fill="none"/>
+
+          <!-- depth ticks -->
+          <g stroke="#E8E2D4" stroke-opacity="0.3" stroke-width="1">
+            <line x1="0" y1="90"  x2="20" y2="90"/>
+            <line x1="0" y1="150" x2="20" y2="150"/>
+            <line x1="0" y1="260" x2="20" y2="260"/>
+            <line x1="0" y1="330" x2="20" y2="330"/>
+            <line x1="0" y1="460" x2="20" y2="460"/>
+            <line x1="0" y1="540" x2="20" y2="540"/>
+          </g>
+        </svg>
+        <p class="art-caption">Illustrative core log with a modelled uncertainty envelope</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="wrap">
+      <p class="eyebrow">The bottleneck</p>
+      <h2>Uncertainty is expensive, and it's rationing investment.</h2>
+      <p class="lede">
+        Resource and reserve estimates carry estimation uncertainty that limits sustainable
+        investment in natural resource projects. Financial institutions have responded with
+        higher thresholds for funding greenfield exploration, while major mining conglomerates
+        have pulled back on exploration activity to preserve balance-sheet optionality. The result
+        is fewer new projects entering the pipeline, widening the bottleneck for critical
+        mineral supply chains.
+      </p>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>From raw geoscience to an investable estimate.</h2>
+
+      <div class="core-log">
+
+        <div class="core-entry">
+          <div class="core-tag" style="--tag:#2F5D62;">Train</div>
+          <div class="core-text">
+            <h3>Probabilistic models, trained on geoscientific data</h3>
+            <p>
+              We train machine learning models on large geoscientific datasets to generate
+              accurate, probabilistic resource and reserve estimates. Each lithological setting
+              is rated for its prospectivity, and for the uncertainty behind that rating.
+            </p>
+          </div>
+        </div>
+
+        <div class="core-entry">
+          <div class="core-tag" style="--tag:#A85C32;">Validate</div>
+          <div class="core-text">
+            <h3>Benchmarked against real deposits</h3>
+            <p>
+              Model performance, accuracy, and efficiency are tested against data from known
+              producing and depleted mineral deposits, so estimates are grounded in outcomes
+              the industry can already check.
+            </p>
+          </div>
+        </div>
+
+        <div class="core-entry">
+          <div class="core-tag" style="--tag:#C9A227;">Apply</div>
+          <div class="core-text">
+            <h3>One model, two decisions</h3>
+            <p>
+              The same probabilistic output serves two moments that matter: guiding where the
+              next drill hole goes in the field, and giving investment teams the confidence to
+              back a project. We built for both from day one.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section class="why" id="why">
+    <div class="wrap why-inner">
+      <div class="why-copy">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Narrower uncertainty changes what you can act on.</h2>
+        <p class="lede">
+          A higher degree of confidence is what converts a resource into a reserve, and what
+          separates a hunch from a decision. Reducing estimation uncertainty gives field teams a
+          sharper case for the next hole and gives investors the confidence to back a project,
+          easing the supply chain bottlenecks that have built up across the sector.
+        </p>
+      </div>
+      <div class="why-art" aria-hidden="true">
+        <svg viewBox="0 0 400 160" class="band-svg">
+          <text x="0" y="24" class="band-label">Traditional estimate</text>
+          <rect x="0" y="34" width="400" height="26" rx="4" fill="#4A5560" fill-opacity="0.25"/>
+          <rect x="60" y="34" width="280" height="26" rx="4" fill="#4A5560" fill-opacity="0.6"/>
+
+          <text x="0" y="104" class="band-label">Our estimate</text>
+          <rect x="0" y="114" width="400" height="26" rx="4" fill="#C9A227" fill-opacity="0.2"/>
+          <rect x="160" y="114" width="90" height="26" rx="4" fill="#C9A227" fill-opacity="0.75"/>
+        </svg>
+        <p class="art-caption">Illustrative narrowing of the estimation uncertainty band</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-inner">
+      <h2>Talk to us about a pilot.</h2>
+      <p class="lede">
+        Whether you're an investor, a mining team, or a supply chain partner exposed to critical
+        mineral risk, we'd like to hear about your project.
+      </p>
+
+      <form
+        action="https://formspree.io/f/xbdnqden"
+        method="POST"
+        class="contact-form"
+        id="contactForm"
+      >
+        <p class="hp-field"><label>Leave this field blank: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="_subject" value="New pilot enquiry: Lodestone Labs website">
+
+        <div data-fs-success></div>
+        <div data-fs-error></div>
+
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" data-fs-field>
+          <span data-fs-error="name"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" data-fs-field>
+          <span data-fs-error="email"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="cf-org">Organisation <span class="optional">(optional)</span></label>
+          <input id="cf-org" name="organisation" type="text" autocomplete="organization" data-fs-field>
+          <span data-fs-error="organisation"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required data-fs-field></textarea>
+          <span data-fs-error="message"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large" data-fs-submit-btn>Send message</button>
+      </form>
+
+      <p class="contact-fallback">
+        Prefer email? Write to us directly at
+        <a href="mailto:info@lodestonelabs.co.uk">info@lodestonelabs.co.uk</a>.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contactForm', formId: 'xbdnqden' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© 2026 Lodestone Labs Ltd. All rights reserved.</span>
+    <nav class="footer-nav">
+      <a href="#approach">How it works</a>
+      <a href="#why">Why it matters</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
