@@ -69,41 +69,222 @@
       <p class="eyebrow">How it works</p>
       <h2>From raw geoscience to an investable estimate.</h2>
 
-      <div class="core-log">
+      <div class="approach-inner">
 
-        <div class="core-entry">
-          <div class="core-tag" style="--tag:#2F5D62;">Train</div>
-          <div class="core-text">
-            <h3>Probabilistic models, trained on geoscientific data</h3>
-            <p>
-              We train machine learning models on large geoscientific datasets to generate
-              accurate, probabilistic resource and reserve estimates. Each lithological setting
-              is rated for its prospectivity, and for the uncertainty behind that rating.
-            </p>
+        <div class="core-log">
+
+          <div class="core-entry">
+            <div class="core-tag" style="--tag:#2F5D62;">Train</div>
+            <div class="core-text">
+              <h3>Probabilistic models, trained on geoscientific data</h3>
+              <p>
+                We train machine learning models on large geoscientific datasets to generate
+                accurate, probabilistic resource and reserve estimates. Each lithological setting
+                is rated for its prospectivity, and for the uncertainty behind that rating.
+              </p>
+            </div>
           </div>
+
+          <div class="core-entry">
+            <div class="core-tag" style="--tag:#A85C32;">Validate</div>
+            <div class="core-text">
+              <h3>Benchmarked against real deposits</h3>
+              <p>
+                Model performance, accuracy, and efficiency are tested against data from known
+                producing and depleted mineral deposits, so estimates are grounded in outcomes
+                the industry can already check.
+              </p>
+            </div>
+          </div>
+
+          <div class="core-entry">
+            <div class="core-tag" style="--tag:#C9A227;">Apply</div>
+            <div class="core-text">
+              <h3>One model, two decisions</h3>
+              <p>
+                The same probabilistic output serves two moments that matter: guiding where the
+                next drill hole goes in the field, and giving investment teams the confidence to
+                back a project. We built for both from day one.
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        <div class="core-entry">
-          <div class="core-tag" style="--tag:#A85C32;">Validate</div>
-          <div class="core-text">
-            <h3>Benchmarked against real deposits</h3>
-            <p>
-              Model performance, accuracy, and efficiency are tested against data from known
-              producing and depleted mineral deposits, so estimates are grounded in outcomes
-              the industry can already check.
-            </p>
-          </div>
-        </div>
+        <!-- Layer-by-layer uncertainty pipeline, adapted from the investor deck's Solution animation -->
+        <div class="pipeline" id="pipeline">
+          <p class="pipeline-strap">Each data layer closes in on the prospective asset.</p>
 
-        <div class="core-entry">
-          <div class="core-tag" style="--tag:#C9A227;">Apply</div>
-          <div class="core-text">
-            <h3>One model, two decisions</h3>
-            <p>
-              The same probabilistic output serves two moments that matter: guiding where the
-              next drill hole goes in the field, and giving investment teams the confidence to
-              back a project. We built for both from day one.
-            </p>
+          <div class="pipeline-layers">
+            <span class="pipeline-chip" data-layer="geo" style="--chip-color:#2F5D62;">Geological</span>
+            <span class="pipeline-chip" data-layer="geophys" style="--chip-color:#A85C32;">Geophysics</span>
+            <span class="pipeline-chip" data-layer="geochem" style="--chip-color:#C9A227;">Geochemistry</span>
+          </div>
+
+          <div class="pipeline-block">
+            <svg viewBox="0 0 420 300" class="block-svg" role="img" aria-label="Isometric illustration of a subsurface block. Geological, geophysical and geochemical survey layers build up on its top face, narrowing in on a probable ore zone; three drill holes then test it and a next target is marked alongside.">
+              <defs>
+                <clipPath id="blockTopClip">
+                  <polygon points="180,55 320,120 210,175 70,110"/>
+                </clipPath>
+                <radialGradient id="oreGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#F2C98A" stop-opacity="0.95"/>
+                  <stop offset="55%" stop-color="#CE3424" stop-opacity="0.55"/>
+                  <stop offset="100%" stop-color="#CE3424" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <polygon class="block-face block-right" points="320,120 320,230 210,285 210,175"/>
+              <polygon class="block-face block-left" points="70,110 210,175 210,285 70,220"/>
+
+              <g clip-path="url(#blockTopClip)">
+                <polygon class="block-face block-top" points="180,55 320,120 210,175 70,110"/>
+
+                <g class="block-layer block-lithology" id="blockLithology">
+                  <polygon points="180,55 208,68 98,123 70,110" fill="#6E5A42"/>
+                  <polygon points="208,68 236,81 126,136 98,123" fill="#7C6548"/>
+                  <polygon points="236,81 264,94 154,149 126,136" fill="#5F6A5E"/>
+                  <polygon points="264,94 292,107 182,162 154,149" fill="#4F5A52"/>
+                  <polygon points="292,107 320,120 210,175 182,162" fill="#8A6F4A"/>
+                </g>
+
+                <g class="block-layer block-contours" id="blockContours">
+                  <ellipse cx="201.6" cy="111.7" rx="20" ry="10"/>
+                  <ellipse cx="201.6" cy="111.7" rx="38" ry="19"/>
+                  <ellipse cx="201.6" cy="111.7" rx="56" ry="28"/>
+                  <ellipse cx="201.6" cy="111.7" rx="78" ry="39"/>
+                </g>
+
+                <g class="block-layer block-geochem" id="blockGeochem">
+                  <circle cx="183.8" cy="70.0" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="170.0" cy="76.9" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="156.2" cy="83.8" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="142.5" cy="90.6" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="128.8" cy="97.5" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="115.0" cy="104.4" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="101.2" cy="111.2" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="201.2" cy="78.1" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="187.5" cy="85.0" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="173.8" cy="91.9" r="2.68" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="160.0" cy="98.8" r="2.69" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="146.2" cy="105.6" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="132.5" cy="112.5" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="118.8" cy="119.4" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="218.8" cy="86.2" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="205.0" cy="93.1" r="2.92" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="191.2" cy="100.0" r="4.49" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="177.5" cy="106.9" r="4.51" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="163.8" cy="113.8" r="2.96" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="150.0" cy="120.6" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="136.2" cy="127.5" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="236.2" cy="94.4" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="222.5" cy="101.2" r="3.26" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="208.8" cy="108.1" r="5.32" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="195.0" cy="115.0" r="5.36" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="181.2" cy="121.9" r="3.91" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="167.5" cy="128.8" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="153.8" cy="135.6" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="253.8" cy="102.5" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="240.0" cy="109.4" r="2.92" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="226.2" cy="116.2" r="4.49" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="212.5" cy="123.1" r="4.51" fill="#F0B474" opacity="0.95"/>
+                  <circle cx="198.8" cy="130.0" r="2.96" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="185.0" cy="136.9" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="171.2" cy="143.8" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="271.2" cy="110.6" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="257.5" cy="117.5" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="243.8" cy="124.4" r="2.68" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="230.0" cy="131.2" r="2.69" fill="#C9A227" opacity="0.85"/>
+                  <circle cx="216.2" cy="138.1" r="1.9" fill="#8A8F7A" opacity="0.55"/>
+                  <circle cx="202.5" cy="145.0" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="188.8" cy="151.9" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="288.8" cy="118.8" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="275.0" cy="125.6" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="261.2" cy="132.5" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="247.5" cy="139.4" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="233.8" cy="146.2" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="220.0" cy="153.1" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                  <circle cx="206.2" cy="160.0" r="1.6" fill="#5F6A72" opacity="0.38"/>
+                </g>
+
+                <circle class="block-hotspot" id="blockHotspot" cx="201.6" cy="111.7" r="0"/>
+              </g>
+
+              <polygon class="block-top-outline" points="180,55 320,120 210,175 70,110"/>
+
+              <g id="blockHoles">
+                <g class="block-hole" data-hole="a" transform="translate(201.6,111.7)">
+                  <line class="hole-shaft" x1="0" y1="0" x2="0" y2="93.5"/>
+                  <line class="hole-intercept" x1="0" y1="34" x2="0" y2="64"/>
+                  <g class="hole-logs">
+                    <line x1="-4" y1="20" x2="4" y2="20"/>
+                    <line x1="-4" y1="35" x2="4" y2="35"/>
+                    <line x1="-4" y1="50" x2="4" y2="50"/>
+                    <line x1="-4" y1="65" x2="4" y2="65"/>
+                    <line x1="-4" y1="80" x2="4" y2="80"/>
+                  </g>
+                  <circle class="hole-collar" r="3.2"/>
+                </g>
+                <g class="block-hole" data-hole="b" transform="translate(229.6,124.7)">
+                  <line class="hole-shaft" x1="0" y1="0" x2="0" y2="93.5"/>
+                  <line class="hole-intercept" x1="0" y1="39" x2="0" y2="61"/>
+                  <g class="hole-logs">
+                    <line x1="-4" y1="20" x2="4" y2="20"/>
+                    <line x1="-4" y1="35" x2="4" y2="35"/>
+                    <line x1="-4" y1="50" x2="4" y2="50"/>
+                    <line x1="-4" y1="65" x2="4" y2="65"/>
+                    <line x1="-4" y1="80" x2="4" y2="80"/>
+                  </g>
+                  <circle class="hole-collar" r="3.2"/>
+                </g>
+                <g class="block-hole" data-hole="c" transform="translate(264.6,126.1)">
+                  <line class="hole-shaft" x1="0" y1="0" x2="0" y2="93.5"/>
+                  <line class="hole-intercept" x1="0" y1="45" x2="0" y2="53"/>
+                  <g class="hole-logs">
+                    <line x1="-4" y1="20" x2="4" y2="20"/>
+                    <line x1="-4" y1="35" x2="4" y2="35"/>
+                    <line x1="-4" y1="50" x2="4" y2="50"/>
+                    <line x1="-4" y1="65" x2="4" y2="65"/>
+                    <line x1="-4" y1="80" x2="4" y2="80"/>
+                  </g>
+                  <circle class="hole-collar" r="3.2"/>
+                </g>
+              </g>
+
+              <g class="block-target" id="blockTarget1" transform="translate(201.6,111.7)">
+                <g class="target-anim">
+                  <line class="target-pole" x1="0" y1="0" x2="0" y2="-24"/>
+                  <path class="target-flag" d="M0,-24 L15,-19 L0,-14 Z"/>
+                </g>
+              </g>
+              <g class="block-target" id="blockTarget2" transform="translate(131.6,108.9)">
+                <g class="target-anim">
+                  <line class="target-pole" x1="0" y1="0" x2="0" y2="-24"/>
+                  <path class="target-flag" d="M0,-24 L15,-19 L0,-14 Z"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="pipeline-readout">
+            <span id="pipelineStage">Prior — no data</span>
+            <span class="pipeline-pct" id="pipelinePct">±62%</span>
+          </div>
+          <div class="pipeline-track">
+            <div class="pipeline-fill" id="pipelineFill" style="width:62%;"></div>
+          </div>
+
+          <div class="pipeline-summary" id="pipelineSummary">
+            <div class="pipeline-summary-row">
+              <span>Before</span>
+              <div class="pipeline-summary-track"><div class="pipeline-summary-fill" style="width:62%; background:var(--greyblue);"></div></div>
+              <span>±62%</span>
+            </div>
+            <div class="pipeline-summary-row">
+              <span>After</span>
+              <div class="pipeline-summary-track"><div class="pipeline-summary-fill" id="pipelineAfterFill" style="width:0%; background:var(--signal);"></div></div>
+              <span id="pipelineAfterPct">±14%</span>
+            </div>
           </div>
         </div>
 

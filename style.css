@@ -7,6 +7,7 @@
    Amber      #C9A227   uncertainty-band accent
    Grey-blue  #4A5560   muted structural tone
    Limestone  #E8E2D4   text on dark
+   Signal red #CE3424   drill-target marker (sampled from the logo mark)
    ========================================================= */
 
 :root {
@@ -17,6 +18,7 @@
   --amber: #C9A227;
   --greyblue: #4A5560;
   --limestone: #E8E2D4;
+  --signal: #CE3424;
 
   --display: "Archivo Expanded", sans-serif;
   --body: "IBM Plex Sans", sans-serif;
@@ -207,6 +209,13 @@ a { color: inherit; }
 /* ---------- approach ---------- */
 .approach { padding: 100px 0; }
 
+.approach-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
 .core-log {
   margin-top: 48px;
   border-left: 1px solid rgba(232, 226, 212, 0.15);
@@ -244,6 +253,246 @@ a { color: inherit; }
 }
 
 .core-text p { color: rgba(232, 226, 212, 0.78); max-width: 560px; }
+
+/* ---------- pipeline animation ---------- */
+.pipeline {
+  margin-top: 48px;
+  background: var(--slate);
+  border: 1px solid rgba(232, 226, 212, 0.1);
+  border-radius: 6px;
+  padding: 28px 28px 24px;
+}
+
+.pipeline-strap {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--limestone);
+  margin-bottom: 20px;
+  min-height: 2.6em;
+}
+
+.pipeline-layers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.pipeline-chip {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0.4em 0.75em;
+  border-radius: 20px;
+  border: 1px solid rgba(232, 226, 212, 0.2);
+  color: rgba(232, 226, 212, 0.4);
+  background: transparent;
+  transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+}
+
+.pipeline-chip.is-on {
+  color: var(--ink);
+  border-color: transparent;
+  background: var(--chip-color, var(--amber));
+}
+
+.pipeline-readout {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: rgba(232, 226, 212, 0.55);
+  margin-bottom: 8px;
+}
+
+.pipeline-pct {
+  font-size: 1rem;
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.pipeline-track {
+  position: relative;
+  height: 26px;
+  background: rgba(232, 226, 212, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pipeline-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 62%;
+  background: var(--amber);
+  border-radius: 4px;
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- pipeline block illustration ---------- */
+.pipeline-block {
+  margin: 16px 0 6px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.block-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.block-face { stroke: none; }
+.block-top { fill: #3B434A; }
+.block-left { fill: #1C2227; }
+.block-right { fill: #262E34; }
+
+.block-top-outline {
+  fill: none;
+  stroke: rgba(232, 226, 212, 0.2);
+  stroke-width: 1.5;
+}
+
+.block-layer {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.block-layer.is-on { opacity: 1; }
+
+.block-contours ellipse {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 1.3;
+}
+.block-contours ellipse:nth-child(1) { opacity: 0.9; }
+.block-contours ellipse:nth-child(2) { opacity: 0.7; }
+.block-contours ellipse:nth-child(3) { opacity: 0.5; }
+.block-contours ellipse:nth-child(4) { opacity: 0.32; }
+
+.block-hotspot {
+  fill: url(#oreGlow);
+  transition: r 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s ease;
+}
+
+.block-hole .hole-shaft {
+  fill: none;
+  stroke: var(--limestone);
+  stroke-width: 2;
+  stroke-dasharray: 94;
+  stroke-dashoffset: 94;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.block-hole.is-drilled .hole-shaft,
+.block-hole.is-logged .hole-shaft {
+  stroke-dashoffset: 0;
+}
+
+.block-hole .hole-intercept {
+  stroke: var(--signal);
+  stroke-width: 5;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.5s;
+}
+
+.block-hole.is-drilled .hole-intercept,
+.block-hole.is-logged .hole-intercept {
+  opacity: 1;
+}
+
+.block-hole .hole-logs {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.block-hole .hole-logs line {
+  stroke: var(--rust);
+  stroke-width: 2;
+}
+
+.block-hole.is-logged .hole-logs { opacity: 1; }
+
+.block-hole .hole-collar {
+  fill: var(--ink);
+  stroke: var(--limestone);
+  stroke-width: 1.5;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.block-hole.is-planned .hole-collar,
+.block-hole.is-drilled .hole-collar,
+.block-hole.is-logged .hole-collar {
+  opacity: 1;
+}
+
+.target-anim {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.block-target.is-on .target-anim {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.target-pole { stroke: var(--signal); stroke-width: 2; }
+.target-flag { fill: var(--signal); }
+
+.pipeline-summary {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(232, 226, 212, 0.1);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.6s ease, max-height 0.6s ease;
+}
+
+.pipeline-summary.is-on {
+  opacity: 1;
+  max-height: 120px;
+}
+
+.pipeline-summary-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 40px;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: rgba(232, 226, 212, 0.6);
+  margin-bottom: 8px;
+}
+
+.pipeline-summary-row:last-child { margin-bottom: 0; }
+
+.pipeline-summary-track {
+  height: 10px;
+  background: rgba(232, 226, 212, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.pipeline-summary-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-fill, .pipeline-chip, .pipeline-summary, .pipeline-summary-fill,
+  .block-layer, .block-hotspot, .target-anim,
+  .block-hole .hole-shaft, .block-hole .hole-intercept, .block-hole .hole-logs, .block-hole .hole-collar {
+    transition: none !important;
+  }
+}
 
 /* ---------- why ---------- */
 .why {
@@ -423,6 +672,7 @@ a { color: inherit; }
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
   .why-inner { grid-template-columns: 1fr; }
+  .approach-inner { grid-template-columns: 1fr; }
 
   .hero {
     padding: 100px 0 90px;
