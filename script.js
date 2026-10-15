@@ -74,15 +74,15 @@ revealTargets.forEach((el) => observer.observe(el));
   const target2El = document.getElementById('blockTarget2');
 
   // Eight stills, seven transitions: prior -> three data layers closing
-  // the uncertainty band -> a first target tested by a fence of three
-  // holes -> drilling -> logged core -> the next target.
+  // the uncertainty band -> a first target -> drilling (six holes) ->
+  // logged core -> the next target.
   const stages = [
-    { label: 'Prior — no data',                                              pct: 62, chips: [],                            lithology: false, contours: false, geochem: false, hotspotR: 0,  hotspotOp: 0,    holes: 'none',    targets: [] },
+    { label: '',                                              pct: 62, chips: [],                            lithology: false, contours: false, geochem: false, hotspotR: 0,  hotspotOp: 0,    holes: 'none',    targets: [] },
     { label: 'Geological mapping',                                                pct: 47, chips: ['geo'],                       lithology: true,  contours: false, geochem: false, hotspotR: 0,  hotspotOp: 0,    holes: 'none',    targets: [] },
     { label: '+ Geophysics',                                                      pct: 35, chips: ['geo', 'geophys'],            lithology: true,  contours: true,  geochem: false, hotspotR: 0,  hotspotOp: 0,    holes: 'none',    targets: [] },
     { label: '+ Geochemistry',                                                    pct: 26, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 34, hotspotOp: 0.55, holes: 'none',    targets: [] },
-    { label: 'First drill target — a fence of three planned holes',          pct: 26, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 34, hotspotOp: 0.6,  holes: 'planned', targets: ['t1'] },
-    { label: 'Drilling — two holes through the orebody, one finds its edge', pct: 18, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 26, hotspotOp: 0.75, holes: 'drilled', targets: ['t1'] },
+    { label: 'First drill target',                                                pct: 26, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 34, hotspotOp: 0.6,  holes: 'none',    targets: ['t1'] },
+    { label: 'Drilling',                                                          pct: 18, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 26, hotspotOp: 0.75, holes: 'drilled', targets: ['t1'] },
     { label: 'Core logs and assays',                                              pct: 14, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 20, hotspotOp: 0.88, holes: 'logged',  targets: ['t1'] },
     { label: 'Next drill target',                                                 pct: 14, chips: ['geo', 'geophys', 'geochem'], lithology: true,  contours: true,  geochem: true,  hotspotR: 20, hotspotOp: 0.88, holes: 'logged',  targets: ['t1', 't2'], summary: true },
   ];
@@ -110,7 +110,6 @@ revealTargets.forEach((el) => observer.observe(el));
     }
 
     holeGroups.forEach((hole) => {
-      hole.classList.toggle('is-planned', s.holes === 'planned');
       hole.classList.toggle('is-drilled', s.holes === 'drilled');
       hole.classList.toggle('is-logged', s.holes === 'logged');
     });
